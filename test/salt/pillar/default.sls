@@ -4,8 +4,6 @@
 sudoers:
   # By default the main sudoers file is managed by this formula (False to skip)
   manage_main_config: true
-  # By default the included directory is not purged from unwanted files
-  purge_includedir: false
   users:
     johndoe:
       - 'ALL=(ALL) ALL'
@@ -63,9 +61,3 @@ sudoers:
       netgroups:
         other_netgroup:
           - 'ALL=(ALL) ALL'
-  # ordering is important. The sudoers manpage says when multiple
-  # entries match, the last match is used. However, if we do not
-  # manage the main config, our included files may not match last.
-  # To guarantee included files match last, set 'true' below to append
-  # each '#include <includefile>' to sudoers file.
-  append_included_files_to_endof_main_config: true
